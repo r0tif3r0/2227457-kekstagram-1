@@ -126,7 +126,7 @@ const getPost = (from, to) => {
         url: getURL(from, to),
         description: getDescription(),
         likes: getLikes(),
-        comments: getComment()
+        comments: Array.from({length: getRandomPositiveInteger(1,10)}, getComment),
     }
 }
 
