@@ -9,7 +9,7 @@ export function checkStringLength (string, length) {
   return string.length <= length;
 }
 
-export const showAlert = (message) => { //переделать
+export const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
   alertContainer.style.position = 'absolute';
