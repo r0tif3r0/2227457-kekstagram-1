@@ -52,27 +52,25 @@ const showComments = () => {
 const removeFullsizeImage = () => {
   document.body.classList.remove('modal-open');
   resetButton.removeEventListener('click', (removeFullsizeImage));
+  // eslint-disable-next-line no-use-before-define
+  document.removeEventListener('keydown', (resetByEsc));
   commentLoader.removeEventListener('click', (showComments));
   commentLoader.classList.remove('hidden');
   childNum = 1;
   fullsizeImage.classList.add('hidden');
 };
 
-const resetByEsc = () => {
-  document.removeEventListener('keydown', (resetByEsc));
-  removeFullsizeImage();
-};
-
-document.addEventListener('keydown', (event) => {
+const resetByEsc = (event) => {
   if (event.keyCode === 27) {
     event.preventDefault();
-    resetByEsc();
+    removeFullsizeImage();
   }
-});
+};
 
 export const getFullSizeImage = (image) => {
   pushImageInfo(image);
   resetButton.addEventListener('click', removeFullsizeImage);
+  document.addEventListener('keydown', (resetByEsc));
   commentLoader.addEventListener('click', showComments);
   showComments();
   fullsizeImage.classList.remove('hidden');

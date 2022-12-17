@@ -3,6 +3,7 @@ import { checkStringLength } from './util.js';
 const imgForm = document.querySelector('.img-upload__form');
 const tag = document.querySelector('.text__hashtags');
 const comment = document.querySelector('.text__description');
+const submitButton = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(imgForm, {
   classTo: 'img-upload__field-wrapper',
@@ -49,9 +50,4 @@ pristine.addValidator(tag, tagCopyValidate, 'Один и тот же хэш-те
 pristine.addValidator(tag, tagLengthValidate, 'Максимальная длина одного хэш-тега 20 символов, включая решётку');
 pristine.addValidator(tag, tagValidate, 'Некорректный хэштег');
 
-imgForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (pristine.validate()) {
-    imgForm.submit();
-  }
-});
+export const isValidate = () => pristine.validate();
