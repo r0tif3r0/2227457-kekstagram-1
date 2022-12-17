@@ -3,7 +3,6 @@ import { checkStringLength } from './util.js';
 const imgForm = document.querySelector('.img-upload__form');
 const tag = document.querySelector('.text__hashtags');
 const comment = document.querySelector('.text__description');
-const submitButton = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(imgForm, {
   classTo: 'img-upload__field-wrapper',
