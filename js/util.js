@@ -25,3 +25,10 @@ export const showAlert = (message) => { //переделать
 
   document.body.append(alertContainer);
 };
+
+let timeoutId;
+
+export function debounce (callback, timeoutDelay = 500) {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(callback, timeoutDelay);
+}
